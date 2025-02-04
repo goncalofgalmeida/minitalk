@@ -7,10 +7,11 @@
 // pegar nesta função da piscine e adicionar ao libft
 int ft_put_nbr_base(int nbr, char *base)
 {
-
+    printf("%s\n", base); // para nao dar erro ao compilar para já
+    return (nbr); // para nao dar erro ao compilar para já
 }
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
     int signum;
     char *msg;
@@ -19,7 +20,8 @@ int main (int argc, char **argv)
     {
         signum = ft_atoi(argv[1]);
         msg = argv[2];
-        printf("%s\n", msg); // substituir pela minha ft_printf()
+        printf("Signum: %i\n", signum); // substituir pela minha ft_printf()
+        printf("Message: %s\n", msg); // substituir pela minha ft_printf()
         return (0);
     }
     else

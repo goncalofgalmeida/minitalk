@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdio.h> // apagar quando já não precisar
 
-int main (void)
+int main(void)
 {
     __pid_t pid;
 
