@@ -6,11 +6,11 @@
 /*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:32:35 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/02/04 16:22:12 by g24force         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:52:42 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

@@ -6,11 +6,11 @@
 /*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:39:09 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/02/04 16:21:17 by g24force         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:52:42 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 int	ft_atoi(const char *nptr)
 {

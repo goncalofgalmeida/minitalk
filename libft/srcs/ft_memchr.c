@@ -6,11 +6,11 @@
 /*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:22:59 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/02/04 16:22:24 by g24force         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:52:42 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 18:01:12 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/11/08 13:26:38 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:52:42 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {

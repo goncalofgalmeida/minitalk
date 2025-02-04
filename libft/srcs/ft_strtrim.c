@@ -6,11 +6,11 @@
 /*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:56:22 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/02/04 16:27:03 by g24force         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:52:42 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

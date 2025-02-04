@@ -6,11 +6,11 @@
 /*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:44:08 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/02/04 16:26:37 by g24force         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:52:42 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
