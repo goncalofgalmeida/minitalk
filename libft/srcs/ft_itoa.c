@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:22:31 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/11/08 12:22:11 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:22:01 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,3 @@ char	*ft_itoa(int n)
 	ft_fill_arr(str, n, size);
 	return (str);
 }
-
-/* int	main(void)
-{
-	int	counter = 0;
-	int	num;
-	char	*ret;
-
-	printf("Enter a number: ");
-	scanf("%i", &num);
-	ret = ft_itoa(num);
-	if (ret)
-	{
-		printf("%s\n", ret);
-		free(ret);	
-	}
-	return (0);
-}
- */

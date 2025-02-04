@@ -6,14 +6,14 @@
 /*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:38:46 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/02/04 13:08:05 by g24force         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:28:11 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
+# include <stdio.h> // confirmar que não é necessária
 # include <string.h>
 # include <stdlib.h>
 # include <stdint.h>

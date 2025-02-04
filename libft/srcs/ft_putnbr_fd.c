@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:29:13 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/10/25 10:38:05 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:23:11 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n % 10, fd);
 	}
 }
-
-/* int	main(void)
-{
-	int	n;
-	int	fd;
-
-	printf("Enter a number: ");
-	scanf("%i", &n);
-	printf("Type the file descriptor on which to write: ");
-	scanf("%i", &fd);
-	ft_putnbr_fd(n, fd);
-	return (0);
-}
- */

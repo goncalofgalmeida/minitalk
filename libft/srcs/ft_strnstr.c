@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:08:06 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/10/23 14:02:27 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:26:52 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-/* int	main(void)
-{
-	char	str[100];
-	char	search_str[100];
-	int	size;
-
-	printf("Enter a string: ");
-	scanf("%s", str);
-	printf("Enter the search string: ");
-	scanf("%s", search_str);
-	printf("Enter the amount of chars you wish to search: ");
-	scanf("%i", &size);
-	printf("%s\n", ft_strnstr(str, search_str, size));
-	return (0);
-}
- */

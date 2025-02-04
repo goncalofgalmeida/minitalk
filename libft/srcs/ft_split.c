@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:42:56 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/11/08 12:54:17 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:23:26 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,3 @@ char	**ft_split(char const *s, char c)
 	strs_arr[i] = NULL;
 	return (strs_arr);
 }
-
-/* int main(void)
-{
-	char *s = " ";
-	int i = 0;
-	char **matrix = ft_split(s, ' ');
-	
-	while (i < word_count(s, ' '))
-	{
-		printf("%s\n", matrix[i]);
-		i++;
-	}
-} */

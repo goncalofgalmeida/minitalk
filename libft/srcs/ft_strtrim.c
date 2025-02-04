@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:56:22 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/11/04 11:56:42 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:27:03 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(substr, &s1[start], end - start + 1);
 	return (substr);
 }
-
-/* int	main(void)
-{
-	char	s1[30];
-	char	set[30];
-
-	printf("Enter a string: ");
-	scanf("%29s", s1);
-	printf("Index the set to trim: ");
-	scanf("%29s", set);
-	printf("Substring: %s\n", ft_strtrim(s1, set));
-	return (0);
-}
- */

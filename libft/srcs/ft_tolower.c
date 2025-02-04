@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:57:50 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/10/23 14:02:44 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:27:13 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,3 @@ int	ft_tolower(int c)
 	}
 	return (c);
 }
-
-/* int	main(void)
-{
-	char	c;
-
-	printf("Enter a character: ");
-	scanf("%c", &c);
-	printf("Converted char (if previously lowercase): %c\n", ft_tolower(c));
-	return (0);
-}
- */

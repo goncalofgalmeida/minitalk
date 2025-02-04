@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 10:32:35 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/11/06 11:03:38 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:22:12 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	return (list);
 }
 
-/* t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
-{
-	t_list	*new_lst;
-
-	new_lst = ft_lstnew(f(lst));
-	if (!new_lst)
-		return (NULL);
-	while (lst)
-	{
-		ft_lstiter(lst, f);
-	}
-} */

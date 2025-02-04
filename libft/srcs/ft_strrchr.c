@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 15:09:57 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/11/05 14:30:52 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:26:57 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,3 @@ char	*ft_strrchr(const char *s, int c)
 		ptr = (char *)s;
 	return (ptr);
 }
-
-/* int	main(void)
-{
-	char	str[100];
-	char	c;
-
-	printf("Enter a string: ");
-	scanf("%99s", str);
-	printf("Enter a character: ");
-	scanf(" %c", &c);
-	printf("%s\n", ft_strrchr(str, c));
-	return (0);
-}
- */

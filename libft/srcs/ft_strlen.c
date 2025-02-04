@@ -6,7 +6,7 @@
 /*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:27:33 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/10/29 11:33:38 by g24force         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:26:41 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
-/* int	main(void)
-{
-	char	str[100];
-	int		count;
-
-	printf("Enter a string: ");
-	scanf("%s", str);
-	count = ft_strlen(str);
-	printf("Number of characters: %i\n", count);
-	return (0);
-}
- */

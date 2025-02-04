@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:29:41 by gjose-fr          #+#    #+#             */
-/*   Updated: 2024/11/05 12:16:42 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:23:50 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dst_length + i] = '\0';
 	return (dst_length + src_length);
 }
-
-/* int	main(void)
-{
-	char	src[100];
-	char	dst[100];
-	int		size;
-	int		length;
-
-	printf("Enter the first string: ");
-	scanf("%99s", dst);
-	printf("Enter the string you wish to concatenate: ");
-	scanf("%99s", src);
-	printf("Enter the size limit: ");
-	scanf("%i", &size);
-	length = ft_strlcat(dst, src, size);
-	printf("Total length of both strings: %i\n", length);
-	printf("Concated string: %s\n", dst);
-	return (0);
-}
- */

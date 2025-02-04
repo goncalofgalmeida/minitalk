@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 11:41:18 by g24force          #+#    #+#             */
-/*   Updated: 2024/11/05 12:26:31 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:27:07 by g24force         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(substr, s + start, size + 1);
 	return (substr);
 }
-
-/* int	main(void)
-{
-	char	s1[30];
-	int		start;
-	int		len;
-
-	printf("Enter a string: ");
-	scanf("%29s", s1);
-	printf("Index to start copying from: ");
-	scanf("%i", &start);
-	printf("Maximum length of substring: ");
-	scanf("%i", &len);
-	printf("Substring: %s\n", ft_substr(s1, start, len));
-	return (0);
-}
- */
