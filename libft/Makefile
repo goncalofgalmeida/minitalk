@@ -30,8 +30,8 @@ SRCS = $(SRCS_DIR)/ft_atoi.c \
 	$(SRCS_DIR)/ft_strdup.c \
 	$(SRCS_DIR)/ft_striteri.c \
 	$(SRCS_DIR)/ft_strjoin.c \
-	$(SRCS_DIR)/ft_strlcat.c 
-	$(SRCS_DIR)/ft_strlcpy.c 
+	$(SRCS_DIR)/ft_strlcat.c \
+	$(SRCS_DIR)/ft_strlcpy.c \
 	$(SRCS_DIR)/ft_strlen.c \
 	$(SRCS_DIR)/ft_strmapi.c \
 	$(SRCS_DIR)/ft_strncmp.c \
@@ -50,7 +50,7 @@ BONUS_SRCS = $(SRCS_DIR)/ft_lstadd_back.c \
 	$(SRCS_DIR)/ft_lstlast.c \
 	$(SRCS_DIR)/ft_lstmap.c \
 	$(SRCS_DIR)/ft_lstnew.c \
-	$(SRCS_DIR)/ft_lstsize.c \
+	$(SRCS_DIR)/ft_lstsize.c 
 	
 OBJS = $(SRCS:.c=.o)
 
