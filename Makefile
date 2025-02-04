@@ -29,7 +29,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) $(LIBFT)
-	$(MAKE) fclean -C
+	$(MAKE) fclean -C $(LIBFT_DIR)
 
 re: fclean
 	$(MAKE) all
