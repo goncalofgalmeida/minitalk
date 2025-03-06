@@ -3,10 +3,21 @@
 #include <stdlib.h>
 #include <stdio.h> // apagar quando já não precisar
 
-void sig_handle_exit(int signum)
+void	handle_signal(int signum)
 {
-	printf("\nRecieved signal: %i\n", signum);
-	exit(0);
+	static int	bit_index = 7;
+	static char	character = 0;
+
+	if (signum == SIGUSR1)
+		character |= (1 << bit_index);
+	bit_index--;
+	if (bit_index < 0)
+	{
+		printf("%c", character);
+		bit_index = 7;
+		character = 0;
+	}
+	
 }
 
 int main(void)
@@ -16,14 +27,14 @@ int main(void)
     pid = getpid();
     printf("%i\n", pid); // substituir pela minha ft_printf()
 
-	signal(SIGINT, sig_handle_exit);
-	signal(SIGTERM, sig_handle_exit);	
+	signal(SIGUSR1, handle_signal);
+	signal(SIGUSR2, handle_signal);
+
+	while
 	while (1)
 	{
-		
+		pause();
 	}
 
     return (0);
 }
-
-struct sigaction action;

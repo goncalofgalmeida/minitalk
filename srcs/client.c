@@ -3,18 +3,42 @@
 #include <unistd.h>
 #include <signal.h>
 #include <stdio.h> // apagar quando já não precisar
+#include <stdlib.h>
+
+void	send_message(int server_pid, char *msg)
+{
+	int i = 0;
+	while (msg[i])
+	{
+		int j = 7;
+		while (j >= 0)
+		{
+			if ((msg[i] >> j) & 1)
+				kill(server_pid, SIGUSR1);
+			else
+				kill(server_pid, SIGUSR2);
+			j--;
+			usleep(100); // CHECK IF NEEDED
+		}
+		i++;
+	}
+}
 
 int main(int argc, char **argv)
 {
-    int signum;
+    int server_pid;
     char *msg;
 
     if (argc == 3)
     {
-        signum = ft_atoi(argv[1]);
+        server_pid = ft_atoi(argv[1]);
         msg = argv[2];
-        printf("Signum: %i\n", signum); // substituir pela minha ft_printf()
-        printf("Message: %s\n", msg); // substituir pela minha ft_printf()
+
+		send_message(server_pid, msg);        
+		/* while (1)
+		{
+			
+		} */
         return (0);
     }
     else
