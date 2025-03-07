@@ -7,10 +7,13 @@
 
 void	send_message(int server_pid, char *msg)
 {
-	int i = 0;
+	int i;
+	int j;
+
+	i = 0;
 	while (msg[i])
 	{
-		int j = 7;
+		j = 7; 
 		while (j >= 0)
 		{
 			if ((msg[i] >> j) & 1)
@@ -21,6 +24,16 @@ void	send_message(int server_pid, char *msg)
 			usleep(100); // CHECK IF NEEDED
 		}
 		i++;
+	}
+	j = 7;
+	while (j >= 0)
+	{
+		if (('\0' >> j) & 1)
+			kill(server_pid, SIGUSR1);
+		else
+			kill(server_pid, SIGUSR2);
+		j--;
+		usleep(100); // CHECK IF NEEDED
 	}
 }
 
