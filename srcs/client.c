@@ -5,6 +5,27 @@
 #include <stdio.h> // apagar quando já não precisar
 #include <stdlib.h>
 
+void	process_and_send_bit(int server_pid, char character, int index)
+{
+	if ((character >> index) & 1)
+		kill(server_pid, SIGUSR1);
+	else
+		kill(server_pid, SIGUSR2);
+}
+
+void	send_stop_char(int server_pid)
+{
+	int	i;
+
+	i = 7;
+	while (i >= 0)
+	{
+		process_and_send_bit(server_pid, '\0', i);
+		i--;
+		usleep(100);
+	}
+}
+
 void	send_message(int server_pid, char *msg)
 {
 	int i;
@@ -16,25 +37,13 @@ void	send_message(int server_pid, char *msg)
 		j = 7;
 		while (j >= 0)
 		{
-			if ((msg[i] >> j) & 1)
-				kill(server_pid, SIGUSR1);
-			else
-				kill(server_pid, SIGUSR2);
+			process_and_send_bit(server_pid, msg[i], j);
 			j--;
 			usleep(100); // CHECK IF NEEDED
 		}
 		i++;
 	}
-	j = 7;
-	while (j >= 0)
-	{
-		if (('\0' >> j) & 1)
-			kill(server_pid, SIGUSR1);
-		else
-			kill(server_pid, SIGUSR2);
-		j--;
-		usleep(100); // CHECK IF NEEDED
-	}
+	send_stop_char(server_pid);
 }
 
 int main(int argc, char **argv)
