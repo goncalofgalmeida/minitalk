@@ -55,6 +55,8 @@ void	perform_sig_processing(int signum, int *flag)
 	}
 	if (signum == SIGUSR1)
 		character |= (1 << bit_index);
+	else
+		character &= ~(1 << bit_index);
 	bit_index--;
 	if (bit_index < 0)
 	{
