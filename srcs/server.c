@@ -26,44 +26,67 @@ void	append_char_to_msg(char c, char **msg_ptr)
 	}
 	free(c_to_str);
 }
-
-void	handle_signal(int signum)
+void	handle_complete_msg(char character, char **message, int *bit_index)
 {
-	static int	bit_index = 7;
-	static char	character = 0;
-	static char	*message = NULL;
+	if (character == '\0')
+	{
+		ft_putstr_fd(*message, 1);
+		ft_putchar_fd('\n', 1);
+		free(*message);
+		*message = NULL;
+	}
+	else
+		append_char_to_msg(character, message);
+	*bit_index = 7;
+}
 
+void	perform_sig_processing(int signum, int *flag)
+{
+	static int	bit_index;
+	static char	character;
+	static char	*message;
+
+	if (*flag == 0)
+	{
+		bit_index = 7;
+		character = 0;
+		message = NULL;
+		*flag = 1;
+	}
 	if (signum == SIGUSR1)
 		character |= (1 << bit_index);
 	bit_index--;
 	if (bit_index < 0)
 	{
-		if (character == '\0')
-		{
-			printf("%s\n", message); // substituir pela minha ft_printf()
-			free(message);
-			message = NULL;
-		}
-		else
-			append_char_to_msg(character, &message);
-		bit_index = 7;
+		handle_complete_msg(character, &message, &bit_index);
 		character = 0;
 	}
 }
 
+void	handle_signal(int signum)
+{
+	static int	flag;
+
+	perform_sig_processing(signum, &flag);
+}
+
 int main(void)
 {
-    __pid_t pid;
+	__pid_t pid;
+	struct sigaction sa;
 
-    pid = getpid();
-    printf("%i\n", pid); // substituir pela minha ft_printf()
-	signal(SIGUSR1, handle_signal);
-	signal(SIGUSR2, handle_signal);
+	sa.sa_handler = handle_signal;
+	sa.sa_flags = SA_RESTART;
+	sigemptyset(&sa.sa_mask);
+	pid = getpid();
+	ft_putstr_fd(ft_itoa(pid), 1);
+	ft_putchar_fd('\n', 1);
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
 
 	while (1)
 	{
 		pause();
 	}
-
-    return (0);
+	return (0);
 }

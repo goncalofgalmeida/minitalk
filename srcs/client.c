@@ -13,7 +13,7 @@ void	send_message(int server_pid, char *msg)
 	i = 0;
 	while (msg[i])
 	{
-		j = 7; 
+		j = 7;
 		while (j >= 0)
 		{
 			if ((msg[i] >> j) & 1)
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
         server_pid = ft_atoi(argv[1]);
         msg = argv[2];
 
-		send_message(server_pid, msg);        
+		send_message(server_pid, msg);
 		/* while (1)
 		{
 			
