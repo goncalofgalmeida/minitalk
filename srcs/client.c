@@ -28,8 +28,8 @@ void	send_stop_char(int server_pid)
 
 void	send_message(int server_pid, char *msg)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (msg[i])
@@ -46,26 +46,25 @@ void	send_message(int server_pid, char *msg)
 	send_stop_char(server_pid);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    int server_pid;
-    char *msg;
+	int		server_pid;
+	char	*msg;
 
-    if (argc == 3)
-    {
-        server_pid = ft_atoi(argv[1]);
-        msg = argv[2];
-
+	if (argc == 3)
+	{
+		server_pid = ft_atoi(argv[1]);
+		msg = argv[2];
 		send_message(server_pid, msg);
 		/* while (1)
 		{
 			
 		} */
-        return (0);
-    }
-    else
-    {
-        printf("Number of parameters is not two, terminating..."); // substituir pela minha ft_printf()
-        return (1);
-    }
+		return (0);
+	}
+	else
+	{
+		printf("Number of parameters is not two, terminating..."); // substituir pela minha ft_printf()
+		return (1);
+	}
 }
