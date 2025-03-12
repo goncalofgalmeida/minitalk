@@ -57,6 +57,7 @@ void	perform_sig_processing(int signum, int *flag)
 		character |= (1 << bit_index);
 	else
 		character &= ~(1 << bit_index);
+	// enviar aqui o sinal para o client de que pode continuar, provavelmente atraves de sa_flags > sa_siginfo > siginfo_t->si_pid
 	bit_index--;
 	if (bit_index < 0)
 	{
