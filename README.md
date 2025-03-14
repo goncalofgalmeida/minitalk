@@ -13,4 +13,4 @@ Minitalk is a project from 42 that focuses on interprocess communication (IPC) u
 - Ensure robustness and reliability in message transmission.
 
 > [!NOTE]
-> Every 42 project must follow a set of predefined code design norms called "The Norm". For more info, [click here](https://github.com/goncalofgalmeida/42norm).
+> Every 42 project must follow a set of predefined code design norms called "The Norm". For more info, [click here](https://github.com/goncalofgalmeida/goncalofgalmeida/blob/main/42Porto/42norm.pdf).
