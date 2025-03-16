@@ -5,24 +5,41 @@
 #include <stdio.h> // apagar quando já não precisar
 #include <stdlib.h>
 
-void	process_and_send_bit(int server_pid, char character, int index)
+void	process_and_send_bit(int server_pid, int bit)
 {
-	if ((character >> index) & 1)
+	if (bit)
 		kill(server_pid, SIGUSR1);
 	else
 		kill(server_pid, SIGUSR2);
 }
 
+void	send_message_length(int server_pid, int len)
+{
+	int i;
+	int	bit;
+
+	i = 31;
+	while (i >= 0)
+	{
+		bit = (len >> i) & 1;
+		process_and_send_bit(server_pid, bit);
+		usleep(100); // CHECK IF NEEDED
+		i--;
+	}
+}
+
 void	send_stop_char(int server_pid)
 {
 	int	i;
+	int	bit;
 
 	i = 7;
 	while (i >= 0)
 	{
-		process_and_send_bit(server_pid, '\0', i);
-		i--;
+		bit = ('\0' >> i) & 1;
+		process_and_send_bit(server_pid, bit);
 		usleep(100);
+		i--;
 	}
 }
 
@@ -30,6 +47,7 @@ void	send_message(int server_pid, char *msg)
 {
 	int	i;
 	int	j;
+	int	bit;
 
 	i = 0;
 	while (msg[i])
@@ -37,9 +55,10 @@ void	send_message(int server_pid, char *msg)
 		j = 7;
 		while (j >= 0)
 		{
-			process_and_send_bit(server_pid, msg[i], j);
-			j--;
+			bit = (msg[i] >> j) & 1;
+			process_and_send_bit(server_pid, bit);
 			usleep(100); // CHECK IF NEEDED
+			j--;
 		}
 		i++;
 	}
@@ -55,6 +74,7 @@ int	main(int argc, char **argv)
 	{
 		server_pid = ft_atoi(argv[1]);
 		msg = argv[2];
+		send_message_length(server_pid, ft_strlen(msg));
 		send_message(server_pid, msg);
 		/* while (1)
 		{
