@@ -22,7 +22,7 @@ void	send_stop_char(int server_pid)
 	{
 		process_and_send_bit(server_pid, '\0', i);
 		i--;
-		usleep(100);
+		usleep(300);
 	}
 }
 
@@ -39,7 +39,7 @@ void	send_message(int server_pid, char *msg)
 		{
 			process_and_send_bit(server_pid, msg[i], j);
 			j--;
-			usleep(100); // CHECK IF NEEDED
+			usleep(300);
 		}
 		i++;
 	}
@@ -57,10 +57,6 @@ int main(int argc, char **argv)
         msg = argv[2];
 
 		send_message(server_pid, msg);
-		/* while (1)
-		{
-			
-		} */
         return (0);
     }
     else

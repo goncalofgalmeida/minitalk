@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <signal.h>
 #include <stdlib.h>
-#include <stdio.h> // apagar quando já não precisar
 
 void	append_char_to_msg(char c, char **msg_ptr)
 {
