@@ -6,7 +6,7 @@
 /*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:45:39 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/05/20 11:48:00 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:36:18 by gjose-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,18 @@ void	handle_signal(int signum)
 	perform_sig_processing(signum, &flag);
 }
 
+#include <stdio.h>
 int	main(void)
 {
 	__pid_t				pid;
+	char				*converted_pid;
 	struct sigaction	sa;
 
 	sa.sa_handler = handle_signal;
 	sa.sa_flags = SA_RESTART;
 	sigemptyset(&sa.sa_mask);
 	pid = getpid();
-	ft_putstr_fd(ft_itoa(pid), 1);
+	ft_putnbr_fd(pid, 1);
 	ft_putchar_fd('\n', 1);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
