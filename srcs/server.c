@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/20 11:45:39 by gjose-fr          #+#    #+#             */
+/*   Updated: 2025/05/20 11:48:00 by gjose-fr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/libft.h"
 
 #include <unistd.h>
@@ -14,7 +26,6 @@ void	append_char_to_msg(char c, char **msg_ptr)
 		exit(1);
 	c_to_str[0] = c;
 	c_to_str[1] = '\0';
-
 	if (*msg_ptr == NULL)
 		*msg_ptr = ft_strdup(c_to_str);
 	else
@@ -25,6 +36,7 @@ void	append_char_to_msg(char c, char **msg_ptr)
 	}
 	free(c_to_str);
 }
+
 void	handle_complete_msg(char character, char **message, int *bit_index)
 {
 	if (character == '\0')
@@ -69,10 +81,10 @@ void	handle_signal(int signum)
 	perform_sig_processing(signum, &flag);
 }
 
-int main(void)
+int	main(void)
 {
-	__pid_t pid;
-	struct sigaction sa;
+	__pid_t				pid;
+	struct sigaction	sa;
 
 	sa.sa_handler = handle_signal;
 	sa.sa_flags = SA_RESTART;
@@ -82,7 +94,6 @@ int main(void)
 	ft_putchar_fd('\n', 1);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
-
 	while (1)
 	{
 		pause();
