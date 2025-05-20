@@ -6,7 +6,7 @@
 /*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:45:39 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/05/20 15:36:18 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:42:20 by gjose-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	handle_signal(int signum)
 	perform_sig_processing(signum, &flag);
 }
 
-#include <stdio.h>
 int	main(void)
 {
 	__pid_t				pid;
