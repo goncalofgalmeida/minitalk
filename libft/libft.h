@@ -6,19 +6,17 @@
 /*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:38:46 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/05/20 11:55:11 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:26:05 by gjose-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h> // confirmar que não é necessária
 # include <string.h>
 # include <stdlib.h>
 # include <stdint.h>
 # include <unistd.h>
-# include <ctype.h>
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
