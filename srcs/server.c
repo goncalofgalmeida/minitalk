@@ -6,13 +6,12 @@
 /*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:45:39 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/05/20 15:42:20 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/06/02 12:19:31 by gjose-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 
-#include <unistd.h>
 #include <signal.h>
 #include <stdlib.h>
 
@@ -84,7 +83,6 @@ void	handle_signal(int signum)
 int	main(void)
 {
 	__pid_t				pid;
-	char				*converted_pid;
 	struct sigaction	sa;
 
 	sa.sa_handler = handle_signal;
