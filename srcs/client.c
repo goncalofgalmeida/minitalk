@@ -6,15 +6,27 @@
 /*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:45:35 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/05/20 11:55:29 by gjose-fr         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:25:07 by gjose-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 
-#include <unistd.h>
 #include <signal.h>
-#include <stdlib.h>
+#include <unistd.h>
+
+int	str_is_pid(char *str)
+{
+	if (!str || !*str)
+		return (0);
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			return (0);
+		str++;
+	}
+	return (1);
+}
 
 void	process_and_send_bit(int server_pid, char character, int index)
 {
@@ -64,14 +76,22 @@ int	main(int argc, char **argv)
 
 	if (argc == 3)
 	{
+		if (!str_is_pid(argv[1]))
+		{
+			ft_putstr_fd("Error: PID must be a positive integer.\n", 2);
+			return (1);
+		}
 		server_pid = ft_atoi(argv[1]);
+		if (server_pid <= 0)
+		{
+			ft_putstr_fd("Error: PID must be greater than zero.\n", 2);
+			return (1);
+		}
 		msg = argv[2];
-		send_message(server_pid, msg);
+		if (msg && *msg)
+			send_message(server_pid, msg);
 		return (0);
 	}
-	else
-	{
-		ft_putstr_fd("Number of parameters is not two, terminating...", 1);
-		return (1);
-	}
+	ft_putstr_fd("Number of parameters is not two, terminating...\n", 2);
+	return (1);
 }
