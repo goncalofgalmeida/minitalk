@@ -4,7 +4,9 @@
 		"signal.h": "c",
 		"stdlib.h": "c",
 		"stdio.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"minitalk.h": "c",
+		"string_view": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }
