@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:45:35 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/06/05 20:54:31 by g24force         ###   ########.fr       */
+/*   Updated: 2025/06/06 15:08:16 by gjose-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,6 @@
 
 #include <signal.h>
 #include <unistd.h>
-
-int	str_is_pid(char *str)
-{
-	if (!str || !*str)
-		return (0);
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
-}
 
 void	process_and_send_len_bit(int server_pid, unsigned int value, int index)
 {
@@ -44,38 +31,39 @@ void	process_and_send_bit(int server_pid, char character, int index)
 		kill(server_pid, SIGUSR2);
 }
 
-void	send_stop_char(int server_pid)
+void	handle_signal(int signum)
+{
+	if (signum == SIGUSR1)
+		return ;
+	else
+		exit(0);
+}
+
+void	send_byte(int server_pid, char character)
 {
 	int	i;
 
 	i = 0;
 	while (i < 8)
 	{
-		process_and_send_bit(server_pid, '\0', i);
+		process_and_send_bit(server_pid, character, i);
 		i++;
-		usleep(300);
+		// usleep(300); // delete
 	}
 }
 
 void	send_message(int server_pid, char *msg)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (msg[i])
 	{
-		j = 0;
-		while (j < 8)
-		{
-			process_and_send_bit(server_pid, msg[i], j);
-			j++;
-			usleep(300);
-		}
+		send_byte(server_pid, msg[i]);
 		i++;
 		//pause();
 	}
-	send_stop_char(server_pid);
+	send_byte(server_pid, '\0');
 }
 
 void	send_length(int server_pid, int length)
@@ -86,7 +74,7 @@ void	send_length(int server_pid, int length)
 	while (i < 32)
 	{
 		process_and_send_len_bit(server_pid, length, i);
-		usleep(300);
+		usleep(300); //delete
 		i++;
 	}
 }
@@ -95,14 +83,25 @@ int	main(int argc, char **argv)
 {
 	int		server_pid;
 	char	*msg;
+	struct sigaction	sa;
 
 	if (argc == 3)
 	{
 		server_pid = ft_atoi(argv[1]);
 		msg = argv[2];
+		sigemptyset(&sa.sa_mask);
+		sa.sa_handler = handle_signal;
+		sa.sa_flags = SA_RESTART;
+		sigaction(SIGUSR1, &sa, NULL);
+		sigaction(SIGUSR2, &sa, NULL);
 		send_length(server_pid, ft_strlen(msg));
-		usleep(500);
+		// usleep(500); // delete
 		send_message(server_pid, msg);
+		while (1)
+		{
+			pause();
+		}
+		
 		return (0);
 	}
 	ft_putstr_fd("Number of parameters is not two, terminating...\n", 2);

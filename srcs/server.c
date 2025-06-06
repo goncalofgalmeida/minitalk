@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: g24force <g24force@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gjose-fr <gjose-fr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:45:39 by gjose-fr          #+#    #+#             */
-/*   Updated: 2025/06/05 20:58:04 by g24force         ###   ########.fr       */
+/*   Updated: 2025/06/06 15:06:34 by gjose-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	reset_variables(t_server_state *server, int *current_char_index)
 	server->msg_length = 0;
 	server->character = 0;
 	server->message = NULL;
-	server->client_pid = 0; // delete??
+	server->client_pid = 0;
 	*current_char_index = 0;
 }
 
@@ -52,9 +52,13 @@ void	handle_char(t_server_state *server, char character, char *msg_ptr, int *msg
 		ft_putchar_fd('\n', 1);
 		free(msg_ptr);
 		reset_variables(server, msg_index);
+		kill(server->client_pid, SIGUSR2);
 	}
 	else
+	{
 		append_char_to_msg(character, msg_ptr, msg_index);
+		kill(server->client_pid, SIGUSR1);
+	}
 	server->character = 0;
 	server->current_bits = 0;
 }
@@ -81,10 +85,11 @@ void	handle_signal(int signum, siginfo_t *info, void *context)
 	// should I make the server.character just a static char variable here?
 
 	(void)context;
-	//(void)info; // delete
 	if (server.client_pid && server.client_pid != info->si_pid)
 		return;
-	check_client_status(info->si_pid, &server);
+	if (!server.client_pid)
+		server.client_pid = info->si_pid;
+	//check_client_status(info->si_pid, &server);
 	if (!server.len_recieved)
 	{
 		if (signum == SIGUSR1)
@@ -100,22 +105,28 @@ void	handle_signal(int signum, siginfo_t *info, void *context)
 		if (server.current_bits == 8)
 		{
 			handle_char(&server, server.character, server.message, &current_char_index);
-			//kill(info->si_pid, SIGUSR1);
 		}
 	}
 }
 
+void	print_server_pid(void)
+{
+	__pid_t	pid;
+
+	pid = getpid();
+	ft_putstr_fd("Server's PID: ", 1);
+	ft_putnbr_fd(pid, 1);
+	ft_putchar_fd('\n', 1);
+}
+
 int	main(void)
 {
-	__pid_t				pid;
 	struct sigaction	sa;
 
 	sigemptyset(&sa.sa_mask);
 	sa.sa_sigaction = handle_signal;
 	sa.sa_flags = SA_SIGINFO | SA_RESTART;
-	pid = getpid();
-	ft_putnbr_fd(pid, 1);
-	ft_putchar_fd('\n', 1);
+	print_server_pid();
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
